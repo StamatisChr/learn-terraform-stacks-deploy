@@ -7,5 +7,5 @@ output "lambda_urls" {
 output "hello_url" {
   type        = string
   description = "URL to invoke the hello world Lambda function"
-  value       = [for x in component.api_gateway : x.lambda.invoke_url]
+  value       = [for x in component.api_gateway : x.invoke_url]
 }
