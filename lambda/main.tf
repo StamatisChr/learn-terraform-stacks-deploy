@@ -34,6 +34,17 @@ resource "random_pet" "lambda_function_name" {
   length = 2
 }
 
+resource "aws_lambda_function_url" "example_url" {
+  function_name      = aws_lambda_function.hello_world.function_name
+  authorization_type = "NONE" 
+
+  cors {
+    allow_origins = ["*"]
+  }
+}
+
+
+
 resource "aws_lambda_function" "hello_world" {
   function_name = random_pet.lambda_function_name.id
 
