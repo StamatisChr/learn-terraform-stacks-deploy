@@ -24,7 +24,7 @@ component "lambda" {
   inputs = {
     region    = var.regions
     bucket_id = component.s3[each.value].bucket_id
-    hello_url = component.api_gateway[each.value].hello_url
+    
   }
 
   providers = {

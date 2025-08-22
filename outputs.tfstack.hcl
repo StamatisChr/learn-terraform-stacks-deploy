@@ -5,7 +5,7 @@ output "lambda_urls" {
 }
 
 output "hello_url" {
-  type        = string
+  type        = list(string)
   description = "URL to invoke the hello world Lambda function"
-  value       = [for x in component.lambda : x.hello_url]
+  value       = [for x in component.api_gateway : x.outputs.hello_url]
 }
